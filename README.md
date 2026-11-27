@@ -3,6 +3,7 @@
 ![CI](https://github.com/GraffGit/snipc/actions/workflows/ci.yml/badge.svg)
 ![Python](https://shields.io/badge/python-3.10%2B-blue)
 ![License](https://shields.io/badge/license-MIT-green)
+![PyPI](https://shields.io/pypi/v/snipc)
 
 A fast, zero-browser CLI tool to turn your code snippets into aesthetic images straight from your terminal.
 
@@ -20,14 +21,16 @@ A fast, zero-browser CLI tool to turn your code snippets into aesthetic images s
 Recommended via `pipx` or `uv`:
 
 ```bash
-pipx install git+https://github.com/GraffGit/snipc.git
+pipx install snipc
 ```
 
 Or using standard `pip`:
 
 ```bash
-pip install git+https://github.com/GraffGit/snipc.git
+pip install snipc
 ```
+
+
 
 > **Note for Linux users:** To use the `--copy` flag, make sure you have `wl-clipboard` (Wayland) or `xclip` (X11) installed.
 
