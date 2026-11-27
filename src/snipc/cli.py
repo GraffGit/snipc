@@ -120,7 +120,7 @@ def add_window_frame(
 
     canvas = create_background(total_w, total_h, bg)
 
-    # Drop shadow
+    
     shadow = Image.new("RGBA", (total_w, total_h), (0, 0, 0, 0))
     shadow_draw = ImageDraw.Draw(shadow)
     shadow_box = [padding, padding + 14, padding + win_w, padding + win_h + 14]
@@ -128,19 +128,19 @@ def add_window_frame(
     shadow = shadow.filter(ImageFilter.GaussianBlur(radius=20))
     canvas = Image.alpha_composite(canvas, shadow)
 
-    # Editor window
+    
     draw = ImageDraw.Draw(canvas)
     win_box = [padding, padding, padding + win_w, padding + win_h]
     draw.rounded_rectangle(win_box, radius=radius, fill=window_bg)
 
-    # macOS traffic lights
+    
     colors = ["#ff5f56", "#ffbd2e", "#27c93f"]
     for i, color in enumerate(colors):
         cx = padding + 22 + i * 22
         cy = padding + 21
         draw.ellipse([cx - 6, cy - 6, cx + 6, cy + 6], fill=color)
 
-    # File title
+    
     if title:
         brightness = sum(window_bg[:3]) / 3
         text_color = (180, 180, 180, 220) if brightness < 128 else (90, 90, 90, 220)
@@ -208,7 +208,7 @@ def render(
     title = None if no_title else file_path.name
     final_img = add_window_frame(code_img, bg=bg, title=title)
 
-    # Save to temporary file if --copy is passed without explicit --out
+    
     if copy and output is None:
         with tempfile.NamedTemporaryFile(suffix=".png", delete=False) as tmp:
             tmp_path = Path(tmp.name)
